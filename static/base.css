@@ -1,0 +1,21 @@
+html{
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    background-color: gainsboro;
+}
+
+nav{
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-bottom: 0.2rem solid gray;
+}
+
+header{
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+    border-bottom: .01rem solid gray;
+    font-size: 2.5rem;
+}
