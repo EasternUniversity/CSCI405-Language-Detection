@@ -19,3 +19,33 @@ header{
     border-bottom: .01rem solid gray;
     font-size: 2.5rem;
 }
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+
+}
+body{
+    font-family: Time New Roman;
+}
+nav{
+    background: #0082e6;
+    height: 80px;
+}
+
+label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
