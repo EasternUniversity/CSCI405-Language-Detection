@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>W3.CSS Template</title>
+    <title>NLP Project</title> <!--Template from W3Schools-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{{url_for ('static', filename='w3.css') }}"> <!--Imported CSS Styling with Flask/Jinja-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
     <style>
     body, html {
@@ -27,8 +27,9 @@
 <body>
 
 <!-- Links (sit on top) -->
+<!-- Copy this to nav.html and inject this with Flask/JINJA-->
 <div class="w3-top">
-  <div class="w3-row w3-padding w3-black">
+  <div class="w3-row w3-padding w3-black" style="padding-left: 50%; padding-right: 50%;">
     <div class="w3-col s3">
       <a href="#" class="w3-button w3-block w3-black">HOME</a>
     </div>
@@ -36,25 +37,26 @@
       <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
     </div>
     <div class="w3-col s3">
-      <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
+      <a href="#project" class="w3-button w3-block w3-black">PROJECT</a>
     </div>
     <div class="w3-col s3">
-      <a href="#where" class="w3-button w3-block w3-black">WHERE</a>
+      <a href="#where" class="w3-button w3-block w3-black">CONTACT US</a>
     </div>
   </div>
 </div>
 
 <!-- Header with image -->
+<!-- Copy this to header.html and inject this with Flask/JINJA-->
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
-    <span class="w3-tag">Open from 6am to 5pm</span>
+  <!--<div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">Open from 6am to 5pm</span>-->
   </div>
   <div class="w3-display-middle w3-center">
     <span class="w3-text-white" style="font-size:90px">Natural<br>Language Processing</span>
   </div>
-  <div class="w3-display-bottomright w3-center w3-padding-large">
+  <!--<div class="w3-display-bottomright w3-center w3-padding-large">
     <span class="w3-text-white">15 Adr street, 5015</span>
-  </div>
+  </div>-->
 </header>
 
 <!-- Add a background color and large text to the whole page -->
@@ -64,7 +66,22 @@
 <div class="w3-container" id="about">
   <div class="w3-content" style="max-width:700px">
     <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE PROJECT</span></h5>
-    <p>Our goal is to classify and display what language translate words is being typed by a userthat a user inputs. Users who utilize our language detection and translation models will receive more accurate and precise results than others. Using our language detection dataset, we will have to create a model which will be able to predict, and therefore classify, the given language. In addition, we will have to create a second model utilizing that same data set that will be used to take as input that classified language and transform it to a specified language determined by the user. </p>
+    <p>
+      Our goal is to classify, display, and translate words that are inputted by a user. 
+      Using our language detection dataset, provided by <a href="https://www.kaggle.com/code/martinkk5575/language-detection/notebook"><i>Kaggle</i></a>, we are creating a model which will predict, then classify, those inputted words to a language such as <i>English, Spanish, Arabic, Russian, and Chinese</i>.
+      We strive to create a Natural Language Processing model that performs close to other models such as Google Translate.
+
+      <!--This sentance doesn't make sense. Is this for our chat bot?-->
+      <!--In addition, we will create a second model utilizing that same data set that will be used to take as input that classified language and transform it to a specified language determined by the user.-->
+      
+      <div style="font-size: smaller;">
+        <i>Project Created by: Joshua Korang, Donye Wakefield, Jesse Byler, Giovanni Ruggirello, and Alex Berger.
+          Created for Education Purposes. Source code available at <a href="https://github.com/EasternUniversity/CSCI405-Language-Detection">Eastern University's Github</a></i>
+      </div>
+    </p>
+    
+    <!--Commenting out for now. May use its styling later when adding more to the website-->
+    <!--
     <div class="w3-panel w3-leftbar w3-light-grey">
       <p><i>"Use products from nature for what it's worth - but never too early, nor too late." Fresh is the new sweet.</i></p>
       <p>Chef, Coffeeist and Owner: Liam Brown</p>
@@ -73,14 +90,23 @@
     <p><strong>Opening hours:</strong> everyday from 6am to 5pm.</p>
     <p><strong>Address:</strong> 15 Adr street, 5015, NY</p>
   </div>
-</div>
+</div>-->
 
-<!-- Menu Container -->
-<div class="w3-container" id="menu">
+<!--Project Container-->
+
+<div class="w3-container" id="project">
   <div class="w3-content" style="max-width:700px">
  
-    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE PROJECT</span></h5>
+
+    <div>
+      This is where the project will go. We will put in a text box that the user will type in.
+      There will be a button next to the textbox that will start the NLP and detect what language was typed in.
+    </div>
+  </div>
   
+</div>
+<!-- Saving this for styling pruposes
     <div class="w3-row w3-center w3-card w3-padding">
       <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
         <div class="w3-col s6 tablink">Eat</div>
@@ -125,16 +151,16 @@
     </div>  
     <img src="https://www.w3schools.com/w3images/coffeehouse2.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
   </div>
-</div>
+</div>-->
 
 <!-- Contact/Area Container -->
 <div class="w3-container" id="where" style="padding-bottom:32px;">
   <div class="w3-content" style="max-width:700px">
-    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">WHERE TO FIND US</span></h5>
-    <p>Find us at some address at some place.</p>
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">Contact Us</span></h5>
+    <!--<p>Find us at some address at some place.</p>
     <img src="https://www.w3schools.com/w3images/map.jpg" class="w3-image" style="width:100%">
     <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
-    <p><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
+    <p><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>-->
     <form action="/action_page.php" target="_blank">
       <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
       <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
