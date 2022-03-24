@@ -13,6 +13,10 @@
      "patterns": ["What is your name?", "What can I call you?"],
      "responses": ["My name is LangBot", "You can call me LangBot"],
      "context_set": ""
-    }
+    },
+    {"tag": "function",
+    "patterns": ["What do you do?", "What are you?"],
+    "responses": ["I am an AI chatbot used for language detection and classification"],
+    "context_set": ""}
 ]
 }
