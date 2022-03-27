@@ -4720,3 +4720,8 @@ venv/lib/python3.9/site-packages/tqdm-4.63.1.dist-info/METADATA
 venv/lib/python3.9/site-packages/tqdm-4.63.1.dist-info/RECORD
 venv/lib/python3.9/site-packages/tqdm-4.63.1.dist-info/top_level.txt
 venv/lib/python3.9/site-packages/tqdm-4.63.1.dist-info/WHEEL
+nltk
+checkpoint
+model.tflearn.data-00000-of-00001
+model.tflearn.index
+model.tflearn.meta
