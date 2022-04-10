@@ -10,3 +10,7 @@ def homepage():
 @app.route("/projects")
 def projects():
     return render_template("chatbot.html")
+
+@app.route("/languagedetector")
+def language():
+    return render_template("languagedetector.html")
