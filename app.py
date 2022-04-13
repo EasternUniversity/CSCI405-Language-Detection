@@ -11,6 +11,6 @@ def homepage():
 def projects():
     return render_template("chatbot.html")
 
-@app.route("/languagedetector")
+@app.route("/summary")
 def language():
-    return render_template("languagedetector.html")
+    return render_template("summary.html")

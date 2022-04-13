@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="{{url_for ('static', filename='chatbot.css') }}">
+    <link rel="stylesheet" href="{{url_for ('static', filename='w3.css') }}">
+
+
+    <style>
+        h1 {text-align: center;}
+        p {text-align: center;}
+        div {text-align: center;}
+        h2 {text-align: center;}
+
+        body, html {
+      height: 100%;
+      font-family: "Inconsolata", sans-serif;
+    }
+
+    </style>
+
+
+</head>
+
+
+
+<body>
+
+    <div class="sidenav">
+        <a href="/">HOME</a>
+        <a href="/">ABOUT</a>
+        <a href="/projects">CHATBOT</a>
+        <a href="/summary">SUMMARY</a>
+      </div>
+
+
+<div class="main">
+    <h1>Welcome to the Project Summary Page</h1>
+    <h2>Understanding the Kaggle Data</h2>>
+    <p>The dataset acquired from [Kaggle](https://www.kaggle.com/code/martinkk5575/language-detection/data) contains words from several different languages. The noise contained in the dataset are duplicate words. To reduce this noise, the words will be broken down into single and double characters, then rated based on how often they show up in that respective language.</p>
+    <h2>Creating Features: Most Used Characters</h2>
+    <p>To train the models to determine which language is being used by the user, we first need to know which characters are used in each language. The best approach for this is to use the dataset which is already using the characters from each language,and find the **most used characters** in them.</p>
+    
+</div>
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>

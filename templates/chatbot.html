@@ -1,6 +1,19 @@
 <!DOCTYPE html> <!--This isn't mandatory if the html tags are used-->
 <html>
   <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="{{url_for ('static', filename='w3.css') }}">
+    <style>
+      body, html {
+      height: 100%;
+      font-family: "Inconsolata", sans-serif;
+    }
+    h1 {text-align: center;}
+        p {text-align: center;}
+        div {text-align: center;}
+        h2 {text-align: center;}
+      
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{url_for ('static', filename='chatbot.css') }}">
   </head>
@@ -8,7 +21,10 @@
   <body>
 
     <div class="sidenav">
-      <a href="/">Home</a>
+      <a href="/">HOME</a>
+      <a href="/">ABOUT</a>
+      <a href="/projects">CHATBOT</a>
+      <a href="/summary">SUMMARY</a>
     </div>
 
     <div class="main">
