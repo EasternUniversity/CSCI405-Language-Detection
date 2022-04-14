@@ -39,11 +39,25 @@
 
 <div class="main">
     <h1>Welcome to the Project Summary Page</h1>
-    <h2>Understanding the Kaggle Data</h2>>
-    <p>The dataset acquired from [Kaggle](https://www.kaggle.com/code/martinkk5575/language-detection/data) contains words from several different languages. The noise contained in the dataset are duplicate words. To reduce this noise, the words will be broken down into single and double characters, then rated based on how often they show up in that respective language.</p>
-    <h2>Creating Features: Most Used Characters</h2>
+    <h2><strong>Understanding the Kaggle Data</strong></h2>
+    <p>The dataset acquired from [Kaggle] contains words from several different languages. The noise contained in the dataset are duplicate words. To reduce this noise, the words will be broken down into single and double characters, then rated based on how often they show up in that respective language.</p>
+    <h2><strong>Creating Features: Most Used Characters</strong></h2>
     <p>To train the models to determine which language is being used by the user, we first need to know which characters are used in each language. The best approach for this is to use the dataset which is already using the characters from each language,and find the **most used characters** in them.</p>
-    
+    <h2>Kaggle Resources</h2>
+    <p> The following code is taken from to understand how to process characters for each language. Kaggle uses the `CountVectorizor` Method from the `sklearn` module to tokenize the characters into readable 1's and 0's. Then, it counts how many times that character has been used in the sample data provided.
+
+        This method reduces the necessity of locating alphabets for each language and creating custom functions to find the most used characters in the dataset.
+         
+        **To summarize Kaggle's findings: Languages based off the Latin Alphabet are easier to differentiate from each other in the data set while Languages with their own Alphabet, like Chinese and Japanese, can be differentiated by single characters alone.**</p>
+        <img src="{{url_for('static', filename='Pic1.png')}}" align="middle" />
+    <p>The train_lang_dict() function takes in the raw vectorized X_train and y_train data sets and converts them into readable dictionaries</p>
+        <img src="{{url_for('static', filename='Pic2.png')}}" align="middle" />
+    <p>The `getRelevantGramsPerLanguage()` function processes the dictionary and returns a dictionary with only the top 50 **most used** characters for **each** language. This number _can_ be changed by setting `top=x` when you call `getRelevantGramsPerLanguage()`</p>
+        <img src="{{url_for('static', filename='Pic3.png')}}" align="middle" />
+    <p>Below displays the top 10 characters from each language in a DataFrame</p>
+        <img src="{{url_for('static', filename='Pic4.png')}}" align="middle" />
+
+
 </div>
 
 </body>
