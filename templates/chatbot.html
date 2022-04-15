@@ -1,41 +1,69 @@
 <!DOCTYPE html> <!--This isn't mandatory if the html tags are used-->
 <html>
-  <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-    <link rel="stylesheet" href="{{url_for ('static', filename='w3.css') }}">
-    <style>
-      body, html {
-      height: 100%;
-      font-family: "Inconsolata", sans-serif;
-    }
-    h1 {text-align: center;}
-        p {text-align: center;}
-        div {text-align: center;}
-        h2 {text-align: center;}
-      
-    </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{url_for ('static', filename='chatbot.css') }}">
-  </head>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <link rel="stylesheet" href="{{url_for ('static', filename='w3.css') }}">
+  <style>
+    body, html {
+    height: 100%;
+    font-family: "Inconsolata", sans-serif;
+  }
+  h1 {text-align: center;}
+      p {text-align: center;}
+      div {text-align: center;}
+      h2 {text-align: center;}
+    
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{url_for ('static', filename='chatbot.css') }}">
+</head>
 
-  <body>
+<body>
 
-    <div class="sidenav">
-      <a href="/">HOME</a>
-      <a href="/">ABOUT</a>
-      <a href="/projects">CHATBOT</a>
-      <a href="/summary">SUMMARY</a>
+  <div class="sidenav">
+    <a href="/">HOME</a>
+    <a href="/">ABOUT</a>
+    <a href="/projects">CHATBOT</a>
+    <a href="/summary">SUMMARY</a>
+  </div>
+
+  <div class="main">
+    <h2>This Page Contains our Chatbot</h2>
+    <p>This sidebar is of full height (100%) and always shown.</p>
+    <p>Scroll down the page to see the result.</p>
+    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    <label for="chat">Chat</label>
+    <textarea name="chat", id="chat">{{request.form['body']}}</textarea>
+  </div>
+
+  <div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chatbot</h4>
+                    <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message...">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="../static/images/chatbox-icon.svg" /></button>
+        </div>
     </div>
+</div>
 
-    <div class="main">
-      <h2>This Page Contains our Chatbot</h2>
-      <p>This sidebar is of full height (100%) and always shown.</p>
-      <p>Scroll down the page to see the result.</p>
-      <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-      <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-      <label for="chat">Chat</label>
-      <textarea name="chat", id="chat">{{request.form['body']}}</textarea>
-    </div>
+    <script src="../static/app.js"></script>
    
-  </body>
+</body>
 </html> 
