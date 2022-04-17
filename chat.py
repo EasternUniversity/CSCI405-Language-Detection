@@ -5,6 +5,7 @@ import torch
 
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
+from datetime import datetime, date
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -43,7 +44,16 @@ def get_response(msg):
     if prob.item() > 0.75:
         for intent in intents['intents']:
             if tag == intent["tag"]:
-                return random.choice(intent['responses'])
+                chatbot_response = random.choice(intent['responses'])
+                if chatbot_response == "The time is: ":
+                    now = datetime.now()
+                    current_time = now.strftime("%H:%M:%S")
+                    return chatbot_response + current_time
+                if chatbot_response == "Todays date is ":
+                    today = date.today()
+                    current_date = today.strftime("%B %d, %Y")
+                    return chatbot_response + current_date
+                return chatbot_response
     
     return "I do not understand..."
 
@@ -51,7 +61,6 @@ def get_response(msg):
 if __name__ == "__main__":
     print("Let's chat! (type 'quit' to exit)")
     while True:
-        # sentence = "do you use credit cards?"
         sentence = input("You: ")
         if sentence == "quit":
             break
