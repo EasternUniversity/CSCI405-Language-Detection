@@ -21,9 +21,10 @@ pip install nltk
 pip install torch
 pip install torchvision
 ```
+```
 While in your virtual environment:
-    -import nltk
-    -nltk.download('punkt')
-    -quit()
-
+    -> import nltk
+    -> nltk.download('punkt')
+    -> quit()
+```
 ----
