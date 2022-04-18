@@ -18,5 +18,12 @@ pip install numpy
 pip install tflearn
 pip install tensorflow
 pip install nltk
+pip install torch
+pip install torchvision
 ```
+While in your virtual environment:
+    -import nltk
+    -nltk.download('punkt')
+    -quit()
+
 ----
