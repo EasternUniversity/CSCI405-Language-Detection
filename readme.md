@@ -22,9 +22,10 @@ pip install torch
 pip install torchvision
 ```
 ```
-While in your virtual environment:
-    -> import nltk
-    -> nltk.download('punkt')
-    -> quit()
+While in your virtual environment type:
+    -> python
+        >> import nltk
+        >> nltk.download('punkt')
+        >> quit()
 ```
 ----
