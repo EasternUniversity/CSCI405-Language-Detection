@@ -23,5 +23,10 @@ def predict():
 def language():
     return render_template("summary.html")
 
+
+@app.route("/languagedetector")
+def detector():
+    return render_template("languagedetector.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
