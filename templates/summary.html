@@ -33,12 +33,20 @@
         <a href="/">HOME</a>
         <a href="/">ABOUT</a>
         <a href="/projects">CHATBOT</a>
+        <a href="/languagedetector">LANGUAGE DETECTOR</a>
         <a href="/summary">SUMMARY</a>
       </div>
 
 
 <div class="main">
     <h1>Welcome to the Project Summary Page</h1>
+    <h2> <strong>Synopsis</strong></h2>
+    <p>Our goal is to train four or five models that detect the language of user input. This will be done with either logistic regression, softmax regression, random forests, or another type of model. We will have to do some preprocessing to clean our raw data. The data we collect will be dependent upon the number of times a certain character is in a piece of text divided by the total number of characters in the text.</p>
+    <p>Another goal is to construct a pipeline that takes in raw text and cleans it into this dataframe. The first model we train will contain 44 features, 2 of the most used characters in each language in our dataset. The second model will contain 5 of the most used characters in each language, then 8, and then 12.</p>
+    <p>Once we train all of the models on the different sets of features, we will apply a voting classifier that takes in some weak learners and combines them to make a strong learner. This is also known as ensemble learning. 
+
+        For the preprocessing part of the project, we will have to create a function that scans for characters in the texts in our X_train dataset and returns a fraction of the number of times that character showed up divided by the total number of characters. 
+        </p>
     <h2><strong>Understanding the Kaggle Data</strong></h2>
     <p>The dataset acquired from [Kaggle] contains words from several different languages. The noise contained in the dataset are duplicate words. To reduce this noise, the words will be broken down into single and double characters, then rated based on how often they show up in that respective language.</p>
     <h2><strong>Creating Features: Most Used Characters</strong></h2>
