@@ -2,6 +2,10 @@ from flask import Flask, render_template, request, redirect, g, url_for, jsonify
 from chat import get_response
 import joblib
 
+#Data Processing Modules
+import pandas as pd
+import numpy as np
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -12,12 +16,12 @@ def homepage():
 def projects():
     return render_template("chatbot.html")
 
-@app.post("/predict")
-def predict():
-    text = request.get_json().get("message")
-    response = get_response(text)
-    message = {"answer": response}
-    return jsonify(message)
+#@app.post("/predict")
+#def predict():
+#    text = request.get_json().get("message")
+#    response = get_response(text)
+#    message = {"answer": response}
+#    return jsonify(message)
 
 
 @app.route("/summary")
@@ -32,19 +36,66 @@ def language():
 def detector():
     return render_template("languagedetector.html")
 
-def modelPredict():
+def processData(data="English"):
+    
+    dictionary = open('model_dictionary', 'r', encoding='utf-8')
+    text = data
+    print(text)
+    chars = dictionary.read().split('\n')
+    chars.pop()
+        
+    new_arr = np.zeros((len(text), len(chars)))
+    i=0
+    j=0
+    for text in data:
+        sentence = text
+        j=0
+        for char in chars:
+            count = 0
+            for letter in sentence:
+                if letter == char:
+                    count = count + 1
+                fraction = count/len(sentence)
+            new_arr[i,j] = fraction
+            j = j + 1
+        
+        i = i + 1
+            
+    data_frame = pd.DataFrame(new_arr, columns = chars)
+    return data_frame
 
+def modelPredict(dataFrame):
+
+    data = dataFrame
+    
     #Grab a Pickle (Open PKL File)
-    file = open('data.pickle', 'rb')
+    file = open('test_model.pkl', 'rb')
 
     #Eat the pickle (Load the Pickled Model)
     model = joblib.load(file)
 
     #See if you ate the right pickle (Predict)
-    predicition = model.predict()
+    predicition = model.predict(data)
 
-    return predicition
+    return set(predicition)
 
+@app.route("/languageprediction", methods=['GET', 'POST'])
+def predict():
+    if request.method == 'POST':
+        data = request.form.get('input_words')
+    
+        #try:
+        processed_data = processData(data)
+        prediction = modelPredict(processed_data)
+
+        print(prediction)
+        return render_template('predict.html', prediction=prediction)
+        
+        #except ValueError:
+            #return "Please Enter valid values"
+
+        pass
+    pass
 
 if __name__ == "__main__":
     app.run(debug=True)
