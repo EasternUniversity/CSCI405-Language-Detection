@@ -16,12 +16,12 @@ def homepage():
 def projects():
     return render_template("chatbot.html")
 
-#@app.post("/predict")
-#def predict():
-#    text = request.get_json().get("message")
-#    response = get_response(text)
-#    message = {"answer": response}
-#    return jsonify(message)
+@app.post("/predict")
+def predict():
+    text = request.get_json().get("message")
+    response = get_response(text)
+    message = {"answer": response}
+    return jsonify(message)
 
 
 @app.route("/summary")
@@ -45,21 +45,15 @@ def processData(data="English"):
     chars.pop()
         
     new_arr = np.zeros((len(text), len(chars)))
-    i=0
     j=0
-    for text in data:
-        sentence = text
-        j=0
-        for char in chars:
-            count = 0
-            for letter in sentence:
-                if letter == char:
-                    count = count + 1
-                fraction = count/len(sentence)
-            new_arr[i,j] = fraction
-            j = j + 1
-        
-        i = i + 1
+    for char in chars:
+        count = 0
+        for letter in text:
+            if letter == char:
+                count = count + 1
+            fraction = count/len(text)
+        new_arr[0,j] = fraction
+        j = j + 1
             
     data_frame = pd.DataFrame(new_arr, columns = chars)
     return data_frame
@@ -77,10 +71,10 @@ def modelPredict(dataFrame):
     #See if you ate the right pickle (Predict)
     predicition = model.predict(data)
 
-    return set(predicition)
+    return predicition
 
 @app.route("/languageprediction", methods=['GET', 'POST'])
-def predict():
+def langPredict():
     if request.method == 'POST':
         data = request.form.get('input_words')
     
