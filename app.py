@@ -51,10 +51,10 @@ def processData(data="English"):
         for letter in text:
             if letter == char:
                 count = count + 1
-            fraction = count/len(text)
+        fraction = count/len(text)
         new_arr[0,j] = fraction
         j = j + 1
-            
+
     data_frame = pd.DataFrame(new_arr, columns = chars)
     return data_frame
 
@@ -71,7 +71,7 @@ def modelPredict(dataFrame):
     #See if you ate the right pickle (Predict)
     predicition = model.predict(data)
 
-    return set(predicition)
+    return predicition[0]
 
 @app.route("/languageprediction", methods=['GET', 'POST'])
 def langPredict():
