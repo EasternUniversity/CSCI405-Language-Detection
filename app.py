@@ -16,12 +16,12 @@ def homepage():
 def projects():
     return render_template("chatbot.html")
 
-#@app.post("/predict")
-#def predict():
-#    text = request.get_json().get("message")
-#    response = get_response(text)
-#    message = {"answer": response}
-#    return jsonify(message)
+@app.post("/predict_bot")
+def predict_bot():
+    text = request.get_json().get("message")
+    response = get_response(text)
+    message = {"answer": response}
+    return jsonify(message)
 
 
 @app.route("/summary")
