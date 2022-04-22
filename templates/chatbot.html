@@ -1,4 +1,6 @@
-<!DOCTYPE html> <!--This isn't mandatory if the html tags are used-->
+{% extends 'base.html' %}
+<!-- Copied this to base.html and injected it with Flask/JINJA-->
+<!--<!DOCTYPE html> 
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,8 +74,16 @@
     <script src="../static/app.js"></script>
    
 </body>
-</html> 
+</html>--> 
+{% block content %}
+<div class="main">
+  <h2><strong>Page Contains our Chatbot</strong></h2>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
 
-
+</div>
+{% endblock %}
 
 

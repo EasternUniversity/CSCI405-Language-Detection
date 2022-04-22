@@ -1,69 +1,28 @@
-<!DOCTYPE html> 
+{% extends 'base.html' %}
 
+{% block content %}
+<h1> <strong>This is the Language Detector Page!</strong></h1>
 
+<h4>How to Use:</h4>
 
-<head>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-    <link rel="stylesheet" href="{{url_for ('static', filename='chatbot.css') }}">
-    <link rel="stylesheet" href="{{url_for ('static', filename='w3.css') }}">
+<p>Type in at least 6 words of the language you would like to detect. Then, hit the detect button!</p>
 
-
-
-
-    <style>
-
-        h1 {text-align: center;}
-        p {text-align: center;}
-        div {text-align: center;}
-        h2 {text-align: center;}
-
-        body, html {
-      height: 100%;
-      font-family: "Inconsolata", sans-serif;
-    }
-
-
-
-
-    </style>
-</head>
-
-<body>
-
-    <div class="sidenav">
-        <a href="/">HOME</a>
-        <a href="/">ABOUT</a>
-        <a href="/projects">CHATBOT</a>
-        <a href="/languagedetector">LANGUAGE DETECTOR</a>
-        <a href="/summary">SUMMARY</a>
+<form class="form-container" action="/languageprediction" method="post">
+  <div class="form-group">
+    <label>Language Detector:</label>
+    <div>
+      <input type="text" id="input_words" name="input_words" placeholder="Type your words here">
     </div>
+  </div>
 
-
-      <h1> <strong>This is the Language Detector Page!</strong></h1>
-
-      <h4>How to Use:</h4>
-      <p>Type in at least 6 words of the language you would like to detect. Then, hit the detect button!</p>
-
-      <form class="form-container" action="/languageprediction" method="post">
-
-        <div class="form-group">
-          <label>Language Detector:</label>
-          <div>
-            <input type="text" id="input_words" name="input_words" placeholder="Type your words here">
-          </div>
+  <div class="form-group">
+    <label class="form-button"></label>
+      <div>
+          <form action="/languageprediction" method="post"></form><button type="submit">Detect</button>
         </div>
-
-        <div class="form-group">
-          <label class="form-button"></label>
-          <div>
-            <form action="/languageprediction" method="post"></form><button type="submit">Detect</button>
-          </div>
-        </div>
-      </form>
-      
-</body>
+      </div>
+</form>     
+{% endblock %}
 
 
 
