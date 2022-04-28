@@ -63,7 +63,7 @@ def modelPredict(dataFrame):
     data = dataFrame
     
     #Grab a Pickle (Open PKL File)
-    file = open('test_model.pkl', 'rb')
+    file = open('model.pkl', 'rb')
 
     #Eat the pickle (Load the Pickled Model)
     model = joblib.load(file)
