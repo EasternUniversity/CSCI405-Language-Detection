@@ -6,17 +6,17 @@ import joblib
 import pandas as pd
 import numpy as np
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route("/")
+@application.route("/")
 def homepage():
     return render_template("home.html")
 
-@app.route("/projects")
+@application.route("/projects")
 def projects():
     return render_template("chatbot.html")
 
-@app.post("/predict")
+@application.post("/predict")
 def predict():
     text = request.get_json().get("message")
     response = get_response(text)
@@ -24,7 +24,7 @@ def predict():
     return jsonify(message)
 
 
-@app.route("/summary")
+@application.route("/summary")
 def language():
     return render_template("summary.html")
 
@@ -32,7 +32,7 @@ def language():
 #                  Machine Learning Model Code                #
 #=============================================================#
 
-@app.route("/languagedetector")
+@application.route("/languagedetector")
 def detector():
     return render_template("languagedetector.html")
 
@@ -73,7 +73,7 @@ def modelPredict(dataFrame):
 
     return predicition[0]
 
-@app.route("/languageprediction", methods=['GET', 'POST'])
+@application.route("/languageprediction", methods=['GET', 'POST'])
 def langPredict():
     if request.method == 'POST':
         data = request.form.get('input_words')
@@ -92,4 +92,4 @@ def langPredict():
     pass
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(host="localhost", port=5000, debug=True)
