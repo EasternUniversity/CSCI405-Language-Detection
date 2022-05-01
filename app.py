@@ -38,13 +38,20 @@ def detector():
 
 def processData(data="English"):
     
-    dictionary = open('model_dictionary', 'r', encoding='utf-8')
-    text = data
-    print(text)
-    chars = dictionary.read().split('\n')
+    #Load in Alphabets
+    alpha_latin = open('dict_latin', 'r', encoding='utf-8')
+    chars = alpha_latin.read().split('\n')
     chars.pop()
+    
+    with open('dict_other', 'r', encoding='utf-8') as alpha_other:
+        tmp = alpha_other.read().split('\n')
+        chars_2 = [char.split(',') for char in tmp]
+        chars_2.pop()
+    
+    text = data
+    print(text, chars, chars_2)
         
-    new_arr = np.zeros((len(text), len(chars)))
+    new_arr = np.zeros((1, len(chars)))
     j=0
     for char in chars:
         count = 0
@@ -56,14 +63,34 @@ def processData(data="English"):
         j = j + 1
 
     data_frame = pd.DataFrame(new_arr, columns = chars)
-    return data_frame
+
+    #now second part of searching for chars
+    new_arr_2 = np.zeros((1, len(chars_2)))
+    count = 0.0
+    j = 0
+    for list in chars_2:
+        count = 0.0
+        for char in list:
+            for letter in text:
+                if letter == char:
+                    count = count + 1.0
+        fraction = count/len(text)
+        new_arr_2[0,j] = fraction
+        j = j+1
+    
+    names = ['Thai', 'Russian', 'Korean', 'Japanese', 'Chinese', 'Tamil', 'Arabic', 'Persian', 'Urdu', 'Hindi', 'Pushto']
+    
+    data_frame_2 = pd.DataFrame(new_arr_2, columns = names)
+    
+    final_data_frame = pd.concat([data_frame, data_frame_2], axis=1)
+    return final_data_frame
 
 def modelPredict(dataFrame):
 
     data = dataFrame
     
     #Grab a Pickle (Open PKL File)
-    file = open('test_model.pkl', 'rb')
+    file = open('model.pkl', 'rb')
 
     #Eat the pickle (Load the Pickled Model)
     model = joblib.load(file)
