@@ -49,7 +49,7 @@ def processData(data="English"):
         chars_2.pop()
     
     text = data
-    print(text, chars, chars_2)
+    #print(text, chars, chars_2) FOR DEBUGGING ONLY
         
     new_arr = np.zeros((1, len(chars)))
     j=0
