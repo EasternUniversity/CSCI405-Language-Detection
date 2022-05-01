@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+<!-- Copied this to base.html and injected it with Flask/JINJA-->
+<!--<!DOCTYPE html> 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="{{url_for ('static', filename='chatbot.css') }}">
+    <link rel="stylesheet" href="{{url_for ('static', filename='w3.css') }}">
+  <style>
+     h1 {text-align: center;}
+        p {text-align: center;}
+        div {text-align: center;}
+        h2 {text-align: center;}
+
+        body, html {
+      height: 100%;
+      font-family: "Inconsolata", sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="sidenav">
+    <a href="/">HOME</a>
+    <a href="/">ABOUT</a>
+    <a href="/projects">CHATBOT</a>
+    <a href="/languagedetector">LANGUAGE DETECTOR</a>
+    <a href="/summary">SUMMARY</a>
+  </div>
+
+  <div class="main">
+    <h2><strong>Page Contains our Chatbot</strong></h2>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+  </div>
+
+  <div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">ML Chatbot</h4>
+                    <p class="chatbox__description--header">Hello, my name is LangBot</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message...">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><script src="https://cdn.lordicon.com/lusqsztk.js"></script>
+              <lord-icon
+                  src="https://cdn.lordicon.com/dklbhvrt.json"
+                  trigger="loop"
+                  delay="800"
+                  style="width:30px;height:30px">
+              </lord-icon></button>
+        </div>
+    </div>
+</div>
+
+    <script src="../static/app.js"></script>
+   
+</body>
+</html>--> 
+{% block content %}
+<div class="main">
+  <h2><strong>Page Contains our Chatbot</strong></h2>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+
+</div>
+{% endblock %}
+
+

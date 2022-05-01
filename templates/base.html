@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title> <!--Template from W3Schools-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{url_for ('static', filename='w3.css') }}"> <!--Imported CSS Styling with Flask/Jinja-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <!--New Navbar-->
+    <link rel="stylesheet" href="{{url_for ('static', filename='chatbot.css') }}">
+
+
+    <style>
+    body, html {
+      height: 100%;
+      font-family: "Inconsolata", sans-serif;
+    }
+
+    .bgimg {
+      background-position: center;
+      background-size: cover;
+      background-image: url("https://images.squarespace-cdn.com/content/v1/58090c87d1758ec5d1815f6f/1498242983958-8NT20B0149XGZ1JCRCUQ/image-asset.jpeg");
+      min-height: 75%;
+    }
+
+    .menu {
+      display: none;
+    }
+
+    h1 {text-align: center;}
+        p {text-align: center;}
+        div {text-align: center;}
+        h2 {text-align: center;}
+    </style>
+  </head>
+  
+  <body>
+
+      <div class="sidenav">
+        <a href="/">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="/projects">CHATBOT</a>
+        <a href="/languagedetector">LANGUAGE DETECTOR</a>
+        <a href="/summary">SUMMARY</a>
+      </div>
+
+      {% block content %}
+      {% endblock %}
+      
+      <div class="container">
+        <div class="chatbox">
+            <div class="chatbox__support">
+                <div class="chatbox__header">
+                    <div class="chatbox__image--header">
+                        <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                    </div>
+                    <div class="chatbox__content--header">
+                        <h4 class="chatbox__heading--header">ML Chatbot</h4>
+                        <p class="chatbox__description--header">Hello, my name is LangBot</p>
+                    </div>
+                </div>
+                <div class="chatbox__messages">
+                    <div></div>
+                </div>
+                <div class="chatbox__footer">
+                    <input type="text" placeholder="Write a message...">
+                    <button class="chatbox__send--footer send__button">Send</button>
+                </div>
+            </div>
+            <div class="chatbox__button">
+                <button><script src="https://cdn.lordicon.com/lusqsztk.js"></script>
+                  <lord-icon
+                      src="https://cdn.lordicon.com/dklbhvrt.json"
+                      trigger="loop"
+                      delay="800"
+                      style="width:30px;height:30px">
+                  </lord-icon></button>
+            </div>
+        </div>
+    </div>
+    
+        <script src="../static/app.js"></script>  
+    </body>
+</html>
