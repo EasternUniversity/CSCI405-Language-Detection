@@ -31,4 +31,5 @@ While in your virtual environment type:
 ----
 
 ### Chatbot
-<img src="Good chatbot image.jpg" alt="This is our Chatbot.">
+![Good chatbot image](https://user-images.githubusercontent.com/98010749/166395528-44363ee4-8f14-4491-9bf7-9b9b99a9f7d8.png)
+
