@@ -29,3 +29,6 @@ While in your virtual environment type:
         >> quit()
 ```
 ----
+
+### Chatbot
+<img src="Good chatbot image.jpg" alt="This is our Chatbot.">
