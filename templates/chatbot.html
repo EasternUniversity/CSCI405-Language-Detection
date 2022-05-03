@@ -78,8 +78,14 @@
 {% block content %}
 <div class="main">
   <h2><strong>WIP: Project Chatbot</strong></h2>
-  <p>We wanted to implement a chat bot on our wesite. The bot is built on a simple neural net that finds keywords from the sentence typed into the chatbox
-    to answer your question or command. These keywords are saved as keys in a JSON file to allow the bot to access the appropriate response.
+  <p>The chatbot was trained using an artificial neural network from Facebook’s open source PyTorch machine learning library. 
+    The model uses a JSON file of sentences that a user could say to the chatbot along with responses to those sentences and the tags. 
+    The neural network trains on these responses and creates neurons that predicts what the user is saying to it. The model was trained by first tokenizing 
+    and steming all the words that the model is being trained on. The  model puts these words in a “bag of words” that make an array of 1 if the word in the 
+    sentence is a frequent word or in another term a word that is unique enough to train on and a 0 if it is not. The model ignores context by discarding the 
+    meaning of the words and focusing on the frequency of occurrence. By doing this the model can learn the words and in a sense read however the meaning of the 
+    words means nothing to the model only the frequency of the words matter. This also makes is so the model can predict reponses to inputs that it has not seen before
+     and make an accurate response.
   </p>
   <p>The bot operated with no issues on our local machines, but not on Beanstalk. The source code for our bot is located on the project's GitHub.</p>
   <p>To use the bot, click the bubble in the bottom right corner of the website! The chat menu will pop up on your screen!
