@@ -12,7 +12,7 @@ application = Flask(__name__)
 def homepage():
     return render_template("home.html")
 
-@application.route("/projects")
+@application.route("/chatbot")
 def projects():
     return render_template("chatbot.html")
 
