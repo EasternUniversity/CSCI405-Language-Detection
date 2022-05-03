@@ -91,6 +91,16 @@
   <p>To use the bot, click the bubble in the bottom right corner of the website! The chat menu will pop up on your screen!
     Some commands to use with the bot are greetings, asking for the date and time, and having it tell a joke.
   </p>
+  <h1><strong>Neural Network</strong></h1>
+  <p>Creating the neural network and adding the layers</p>
+  <img src="{{ url_for('static', filename='images/nn.png') }}" width="60%" height="60%"/>
+  <h1><strong>Neural Network Training</strong></h1>
+  <p>Training the neural network with the JSON file that we have to create the neurons of the network with the tags</p>
+  <img src="{{ url_for('static', filename='images/nn_train.png') }}" width="60%" height="60%"/>
+  <h1><strong>Running the chatbot model</strong></h1>
+  <p>This is where the chatbot runs, the bot tokenizes the words the user gave and adds those words to the bag of words and then the model uses that bag of word data to pick a 
+    tag that best matches the predicted tag by a confidence of 75% and then the function returns a random response</p>
+  <img src="{{ url_for('static', filename='images/chat.png') }}" width="60%" height="60%"/>
 
 </div>
 {% endblock %}
