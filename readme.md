@@ -33,3 +33,6 @@ While in your virtual environment type:
 ### Chatbot
 ![Good chatbot image](https://user-images.githubusercontent.com/98010749/166395528-44363ee4-8f14-4491-9bf7-9b9b99a9f7d8.png)
 
+
+### Language Detector
+![LanguageDetector](https://user-images.githubusercontent.com/98010749/166395609-c6862716-41bc-4182-99c1-5f786485c864.png)
