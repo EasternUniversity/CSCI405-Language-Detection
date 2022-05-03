@@ -1,33 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> <strong>This is the Language Detector Page!</strong></h1>
+  <h1> <strong>Welcome to the Language Detector!</strong></h1>
 
-<h4>How to Use:</h4>
+  <p>The Language Detector is trained on several language's alphabets to assign words to a language.
+    <i>The source data designated <b>Italian</b> as <b>Latin</b> and was not changed for this project.</i>
+  </p>
 
-<p>Type in at least 6 words of the language you would like to detect. Then, hit the detect button!</p>
+  <h4>How to Use:</h4>
 
-<form class="form-container" action="/languageprediction" method="post">
-  <div class="form-group">
-    <label>Language Detector:</label>
-    <div>
-      <input type="text" id="input_words" name="input_words" placeholder="Type your words here">
-    </div>
-  </div>
+  <p>Type in at least 6 words of the language you would like to detect. Then, hit the detect button!</p>
 
-  <div class="form-group">
-    <label class="form-button"></label>
+  <form class="form-container" action="/languageprediction" method="post">
+    <div class="form-group">
+      <label>Language Detector:</label>
       <div>
-          <form action="/languageprediction" method="post"></form><button type="submit">Detect</button>
-        </div>
+        <input type="text" id="input_words" name="input_words" placeholder="Type your words here">
       </div>
-</form>     
+    </div>
+
+    <div class="form-group">
+      <label class="form-button"></label>
+        <div>
+            <form action="/languageprediction" method="post"></form><button type="submit">Detect</button>
+          </div>
+        </div>
+  </form>   
 {% endblock %}
-
-
-
-
-
-
 
 </html>
