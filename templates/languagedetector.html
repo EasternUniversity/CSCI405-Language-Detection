@@ -2,30 +2,62 @@
 
 {% block content %}
   <h1> <strong>Welcome to the Language Detector!</strong></h1>
-
-  <p>The Language Detector is trained on several language's alphabets to assign words to a language.
-    <i>The source data designated <b>Italian</b> as <b>Latin</b> and was not changed for this project.</i>
-  </p>
-
-  <h4>How to Use:</h4>
-
-  <p>Type in at least 6 words of the language you would like to detect. Then, hit the detect button!</p>
-
-  <form class="form-container" action="/languageprediction" method="post">
-    <div class="form-group">
-      <label>Language Detector:</label>
-      <div>
-        <input type="text" id="input_words" name="input_words" placeholder="Type your words here">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="form-button"></label>
-        <div>
-            <form action="/languageprediction" method="post"></form><button type="submit">Detect</button>
-          </div>
+  <div class="main">
+    <p>The Language Detector is trained on several language's alphabets to assign words to a language.
+      <div class="row">
+        <div class="column">
+          <ul>
+            <li>English</li>
+            <li>Spanish</li>
+            <li>French</li>
+            <li>Latin*</li>
+            <li>Dutch</li>
+            <li>Portugese</li>
+            <li>Swedish</li>
+            <li>Estonian</li>
+            <li>Romanian</li>
+            <li>Indonesian</li>
+            <li>Russian</li>
+          </ul> 
         </div>
-  </form>   
+        <div class="column">
+          <ul>
+            <li>Thai</li>
+            <li>Tamil</li>
+            <li>Japanese</li>
+            <li>Chinese</li>
+            <li>Korean</li>
+            <li>Pushto</li>
+            <li>Arabic</li>
+            <li>Urdu</li>
+            <li>Hindu</li>
+            <li>Persian</li>
+          </ul> 
+        </div>
+      </div>
+      <i>*The source data designated <b>Italian</b> as <b>Latin</b> and was not changed for this project.</i>
+    </p>
+
+    <h4>How to Use:</h4>
+
+    <p>Type in at least 6 words of the language you would like to detect. Then, hit the detect button!</p>
+
+    <form class="form-container" action="/languageprediction" method="post">
+      <div class="form-group">
+        <label>Language Detector:</label>
+        <div>
+          <input type="text" id="input_words" name="input_words" placeholder="Type your words here">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-button"></label>
+          <div>
+              <form action="/languageprediction" method="post"></form><button type="submit">Detect</button>
+            </div>
+          </div>
+    </form>
+  </div>   
 {% endblock %}
 
 </html>
