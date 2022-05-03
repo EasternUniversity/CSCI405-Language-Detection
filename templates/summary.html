@@ -35,36 +35,20 @@
 {% block content %}
         <div class="main"><!-- There is a <main> tag for main classes-->
             <h1>Welcome to the Project Summary Page</h1>
-            <h2> <strong>Synopsis</strong></h2>
-            <p>Our goal is to train four or five models that detect the language of user input. This will be done with either logistic regression, softmax regression, random forests, or another type of model. We will have to do some preprocessing to clean our raw data. The data we collect will be dependent upon the number of times a certain character is in a piece of text divided by the total number of characters in the text.</p>
-            <p>Another goal is to construct a pipeline that takes in raw text and cleans it into this dataframe. The first model we train will contain 44 features, 2 of the most used characters in each language in our dataset. The second model will contain 5 of the most used characters in each language, then 8, and then 12.</p>
-            <p>Once we train all of the models on the different sets of features, we will apply a voting classifier that takes in some weak learners and combines them to make a strong learner. This is also known as ensemble learning. 
-
-            For the preprocessing part of the project, we will have to create a function that scans for characters in the texts in our X_train dataset and returns a fraction of the number of times that character showed up divided by the total number of characters. 
-            </p>
+            <h2><strong>Synopsis</strong></h2>
+            <h2><u><strong>Goal:</strong></u>Our goal was to train a model that could detect the language of user input with an accuracy score of at least 90%, using either a decision tree, random forest, adaboost, or gradient boosting classifier. </h2>
+            <h2><u><strong>Method:</strong></u>We decided to identify languages by individual characters. We created a function that goes through a dataframe of text and calculates the fraction of number of times a specific character appears divided by the total number of characters in the text. The function accepts a dataframe and a list of characters, then goes through the list of characters, finds the fraction of occurrence, and sticks the value into a dataframe which would look something like this:</h2>
+            <img src="{{ url_for('static', filename='images/feature_engineering_.png') }}" width="90%" height="90%"/>
+            <h2>We then can send this dataframe and the y_train values to the .fit() method, which trains a model on the data. After trying different types of models with varying numbers of characters, groups of characters, we found that a gradient boosting classifier has the highest accuracy on the training and test set, followed by a random forest, then an adaboost classifier, and lastly a decision tree. Additionally, we discovered that the highest accuracy achieved, 96%, was achieved by finding the frequency of individual characters of romance languages, and by finding the frequency of groups of characters from non-romance languages like Chinese, Japanese, Pushto, Tamil, etc.</h2>
+            <h2>We found that 9,000 out of the 17,600 rows of text data was optimal when training the model, rather than the full size of X_train, which would take longer and create an excessive amount of features.</h2>
+            <h2><u><strong>Further Investigation:</strong></u>If we were to work more on this project and hope to increase the accuracy score, searching for common words, common bi-grams (like in english: at, ea, ch, sh, th), or increasing the list of characters for languages that have thousands of characters like Chinese, Japanese, etc. We think these would increase the success of our project, possibly increasing the accuracy score from 96% to about 98% or 99%.</h2>
             
-            <h2><strong>Understanding the Kaggle Data</strong></h2>
-            <p>The dataset acquired from [Kaggle] contains words from several different languages. The noise contained in the dataset are duplicate words. To reduce this noise, the words will be broken down into single and double characters, then rated based on how often they show up in that respective language.</p>
-            <h2><strong>Creating Features: Most Used Characters</strong></h2>
-            <p>To train the models to determine which language is being used by the user, we first need to know which characters are used in each language. The best approach for this is to use the dataset which is already using the characters from each language,and find the **most used characters** in them.</p>
-            <h2>Kaggle Resources</h2>
-            <p> The following code is taken from to understand how to process characters for each language. Kaggle uses the `CountVectorizor` Method from the `sklearn` module to tokenize the characters into readable 1's and 0's. Then, it counts how many times that character has been used in the sample data provided.
-
-            This method reduces the necessity of locating alphabets for each language and creating custom functions to find the most used characters in the dataset.
-         
-            **To summarize Kaggle's findings: Languages based off the Latin Alphabet are easier to differentiate from each other in the data set while Languages with their own Alphabet, like Chinese and Japanese, can be differentiated by single characters alone.**</p>
-            <img src="{{url_for('static', filename='Pic1.png')}}" align="middle" />
-            
-            <p>The train_lang_dict() function takes in the raw vectorized X_train and y_train data sets and converts them into readable dictionaries</p>
-            <img src="{{url_for('static', filename='Pic2.png')}}" align="middle" />
-            
-            <p>The `getRelevantGramsPerLanguage()` function processes the dictionary and returns a dictionary with only the top 50 **most used** characters for **each** language. This number _can_ be changed by setting `top=x` when you call `getRelevantGramsPerLanguage()`</p>
-            <img src="{{url_for('static', filename='Pic3.png')}}" align="middle" />
-            
-            <p>Below displays the top 10 characters from each language in a DataFrame</p>
-            <img src="{{url_for('static', filename='Pic4.png')}}" align="middle" />
-
-
+            <div style="padding-top: 1%">    
+                <img src="{{ url_for('static', filename='images/function.png') }}" width="90%" height="90%"/>
+                <img src="{{ url_for('static', filename='images/rnd_for.png') }}" width="90%" height="90%"/>
+                <img src="{{ url_for('static', filename='images/gbr.png') }}" width="90%" height="90%"/>
+                <img src="{{ url_for('static', filename='images/accuracy_graph.png') }}" width="90%" height="90%"/>
+            </div>
         </div>
 
     <!--</body>-->
